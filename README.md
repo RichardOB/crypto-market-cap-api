@@ -43,3 +43,5 @@ A tool that allows us to run the Docker image and easily manage the different se
 6. Travis-CI
 
 A continuous integration tool that is used to automatically run linting and unit tests when a change is made to the project repository. 
+
+You can view the build statuses over time using the [Travis-ci Dashboard](https://travis-ci.com/github/RichardOB/crypto-market-cap-api)
