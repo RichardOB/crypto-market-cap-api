@@ -16,6 +16,23 @@ The crypto-market-cap-api has been setup to make use of Docker (using a lightwei
 1. Build the image using Docker Compose:
 `docker-compose build`
 
+2. Run Tests to make sure everything is working:
+`docker-compose run --rm app sh -c "python manage.py test && flake8"`
+
+
+# Running Tests and Linting
+
+
+## Steps for Gently Scaling with 3rd party CoinGecko API
+
+This project takes steps to reducing the number of calls made to the 3rd party CoinGecko API by caching the results of each call for a specific period. The period chosen should be based on the potential frequency and period between changes. 
+
+For example: A new coin being added to the CoinGecko coins list is unlikely to happen more than a few times a day (if at all).
+
+The cache for retrieving the list of available coins on CoinGecko is set to timeout after 12 hours for the purpose of this assignment but would ideally be analysed and adjusted accordingly. 
+
+The Crypto Market Cap API makes use of a per view cache by caching the output of individual views. Local memory caching is used which means that each process has its own private cache instance - this cache is not particularly memory-efficient and is not recommended for production environments. 
+
 ## Project Technology
 
 The following section outlines the technology that was used to build this project.

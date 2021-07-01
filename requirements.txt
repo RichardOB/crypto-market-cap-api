@@ -4,3 +4,4 @@ flake8>=3.9.2,<=3.10.0
 autopep8>=1.5.7,<=1.6.0
 pylint-django>=2.4.4,<=2.5.0
 pylint>=2.9.0,<=2.10.0
+pycoingecko>=2.2.0,<=2.3.0
