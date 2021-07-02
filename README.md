@@ -3,6 +3,7 @@ A basic Crypto Market Cap API making use of the CoinGecko API
 
 # Environment Setup
 
+In order to run the Crypto Market Cap API it is advised that you make use of Docker and Docker Compose. 
 ## Docker
 
 macOS and Windows users can install Docker Desktop which contains both Docker and Docker-Compose tools rrequired to run the project using Docker.
@@ -19,10 +20,34 @@ The crypto-market-cap-api has been setup to make use of Docker (using a lightwei
 2. Run Tests to make sure everything is working:
 `docker-compose run --rm app sh -c "python manage.py test && flake8"`
 
+3. Run the docker image:
+`docker-compose up`
 
-# Running Tests and Linting
+4. Interact with the Crypto Market API running locally on port 8000 using a REST client (see API End Points) or through the Django Rest Framework Browsable API:
 
+**Coin List**: http://localhost:8000/api/crypto/coinList/
 
+**Market Cap**: http://localhost:8000/api/crypto/marketCap/?coin_id={coin_id}&date={date}&currency={currency}
+
+# API End Points
+
+### Coin List
+**[GET]** http://localhost:8000/api/crypto/coinList/
+
+Get the list of availale coins including the coin_id, coin symbol, and name.
+
+### Market Cap
+**[GET]** http://localhost:8000/api/crypto/marketCap/?coin_id={coin_id}&date={date}&currency={currency}
+
+Get Market Cap in specific currency for given coin_id on a specified date 
+
+**coin_id**: The coin id (can be obtained from /coins) eg. bitcoin
+
+**date**: The specified date to fetch the market cap for in YYYY/MM/dd eg. 2021/07/01
+
+**currency**: The specified currency value of the Market Cap e.g. gdp
+
+Example: http://localhost:8000/api/crypto/marketCap/?coin_id=ripple&date=2020/08/06&currency=gbp
 ## Steps for Gently Scaling with 3rd party CoinGecko API
 
 This project takes steps to reducing the number of calls made to the 3rd party CoinGecko API by caching the results of each call for a specific period. The period chosen should be based on the potential frequency and period between changes. 

@@ -1,0 +1,6 @@
+INVALID_DATE = "Invalid date format provided. Please YYYY/MM/dd date format"
+COIN_UNAVAILABLE = "Coin with given id does not exist"
+COIN_ID_NOT_PROVIDED = "A coin_id must be provided"
+QUERY_DATE_NOT_PROVIDED = "A query date must be provided"
+CURRENCY_CODE_NOT_PROVIDED = "A currency code must be provided"
+FUTURE_DATE_NOT_ALLOWED = "Date cannot be in the future"

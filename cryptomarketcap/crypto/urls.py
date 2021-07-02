@@ -11,4 +11,9 @@ urlpatterns = [
         cache_page(60*60*12)(views.CoinListViewSet.as_view({'get': 'list'})),
         name='coinList'
     ),
+    path(
+        'marketCap/',
+        cache_page(60*60*12)(views.CoinListViewSet.as_view({'get': 'market'})),
+        name='marketCap'
+    ),
 ]
